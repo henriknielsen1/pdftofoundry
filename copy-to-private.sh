@@ -3,7 +3,7 @@
 # Helper script to copy this repository to a private GitHub repository
 # Usage: ./copy-to-private.sh <your-username> <new-repo-name>
 
-set -e
+set -euo pipefail
 
 # Color codes for output
 RED='\033[0;31m'
@@ -69,6 +69,18 @@ if git remote | grep -q "^private$"; then
     git remote remove private
 fi
 git remote add private "${NEW_REPO_URL}"
+
+print_info "Verifying the remote repository is accessible..."
+if ! git ls-remote "${NEW_REPO_URL}" &> /dev/null; then
+    print_error "Cannot access the repository at ${NEW_REPO_URL}"
+    print_error "Please verify:"
+    echo "  1. The repository exists and is empty"
+    echo "  2. You have access to the repository"
+    echo "  3. Your GitHub credentials are configured correctly"
+    git remote remove private
+    exit 1
+fi
+print_info "✓ Repository is accessible"
 
 print_info "Fetching all branches and tags..."
 git fetch --all
