@@ -19,3 +19,15 @@ To use, follow the following steps:
 It will not work with modified or pirated PDFs.
 
 For personal use only.
+
+---
+
+## Copying to a Private Repository
+
+If you want to copy this repository to your own private GitHub repository:
+
+* See the detailed guide in COPYING_TO_PRIVATE_REPO.md for step-by-step instructions
+* Or use the helper script: ./copy-to-private.sh <your-username> <new-repo-name>
+
+The guide includes multiple methods (GitHub CLI, git commands, web interface, and mirror) 
+with troubleshooting tips and best practices.
