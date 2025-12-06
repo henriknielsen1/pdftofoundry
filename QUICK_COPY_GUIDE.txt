@@ -1,0 +1,50 @@
+QUICK GUIDE: Copy This Repository to a Private GitHub Repository
+================================================================
+
+FASTEST METHOD (Using GitHub CLI):
+-----------------------------------
+1. Install GitHub CLI: https://cli.github.com/
+
+2. Clone this repository:
+   $ git clone https://github.com/henriknielsen1/pdftofoundry.git
+   $ cd pdftofoundry
+
+3. Create and push to private repo:
+   $ gh repo create YOUR-USERNAME/pdftofoundry-private --private --source=. --remote=private
+   $ git push private --all
+   $ git push private --tags
+
+DONE! Your private repo is at: https://github.com/YOUR-USERNAME/pdftofoundry-private
+
+
+MANUAL METHOD (Using Git Only):
+--------------------------------
+1. Create a new PRIVATE repository on GitHub (https://github.com/new)
+   - Name it (e.g., pdftofoundry-private)
+   - Select "Private"
+   - Do NOT initialize with README
+
+2. Clone this repository:
+   $ git clone https://github.com/henriknielsen1/pdftofoundry.git
+   $ cd pdftofoundry
+
+3. Add your private repo as remote and push:
+   $ git remote add private https://github.com/YOUR-USERNAME/pdftofoundry-private.git
+   $ git push private --all
+   $ git push private --tags
+
+DONE! Your private repo is at: https://github.com/YOUR-USERNAME/pdftofoundry-private
+
+
+USING THE HELPER SCRIPT:
+------------------------
+1. Clone this repository
+2. Run: ./copy-to-private.sh YOUR-USERNAME pdftofoundry-private
+   (First create the empty private repo on GitHub)
+
+
+For detailed instructions, troubleshooting, and advanced options:
+- See COPYING_TO_PRIVATE_REPO.md
+- Or run: ./copy-to-private.sh
+
+Remember: Replace YOUR-USERNAME with your actual GitHub username!
